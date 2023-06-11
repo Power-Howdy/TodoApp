@@ -1,0 +1,26 @@
+dotenv: .env
+project_structure:
+    build: frontend/src/chain-info
+dev_deployment_artifacts: True
+networks:
+    default: development
+    development:
+        cmd_settings:
+        mnemonic: brownie
+        default_balance: 100000000000000000000
+        unlock: <ACCOUNT ADDRESS HERE> # optionally add saved brownie account to Ganache
+        # (requires explicit transfer of eth to accounts[-1]) 
+
+        update_interval: 60
+        verify: False
+
+    live:
+        gas_limit: auto
+        gas_buffer: 1.1
+        gas_price: auto
+        max_fee: null
+        priority_fee: null
+        reverting_tx_gas_limit: false
+        default_contract_owner: false
+wallets:
+  from_key: ${PRIVATE_KEY}
